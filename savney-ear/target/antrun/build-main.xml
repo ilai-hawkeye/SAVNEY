@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy flatten="true" todir="C:\Users\Gorgorito\workspace\SAVNEY_DES\savney\savney-ear/releases" failonerror="true" overwrite="true" verbose="true">
+    <fileset includes="**/*local.ear" dir="C:\Users\Gorgorito\workspace\SAVNEY_DES\savney\savney-ear\target"/>
+  </copy>
+</target>
+</project>

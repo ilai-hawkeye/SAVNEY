@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="savney-ejb-ws-rest-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/src/main/webapp/WEB-INF/web.xml"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="savney-modelo-bd-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/savney-modelo-bd/savney-modelo-bd">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="savney-ejb-bd-cliente-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/savney-ejb-bd-cliente/savney-ejb-bd-cliente">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="savney-ejb-ws-cliente-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/savney-ejb-ws-cliente/savney-ejb-ws-cliente">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="savney-ejb-ws-rest"/>
+        <property name="java-output-path" value="/savney-ejb-ws-rest/target/classes"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/lib/*-sources.jar,WEB-INF/lib/jersey*.jar,WEB-INF/lib/savney-log*.jar"/>
+    </wb-module>
+</project-modules>

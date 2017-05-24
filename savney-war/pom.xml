@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hawkano.savney</groupId>
+    <artifactId>savney</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>savney-war</artifactId>
+  <packaging>war</packaging>
+  <name>savney-war</name>
+  <description>Modulo WAR</description>
+  
+  <build>
+		<finalName>savney-war-${environment}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>cleanupEclipseArtifactsWeb</id>
+						<phase>clean</phase>
+						<configuration>
+			              <target>
+			                <mkdir dir="releases" />
+			              </target>
+			            </configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<copy todir="${basedir}/releases" flatten="true" verbose="true"
+									overwrite="true" failonerror="true">
+									<fileset dir="${project.build.directory}"
+										includes="**/*${environment}.war" />
+								</copy>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<packagingExcludes>WEB-INF/lib/*-sources.jar, WEB-INF/lib/jersey*.jar</packagingExcludes>
+					<archive>
+						<manifest>
+							<addClasspath>false</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+					<webXml>src\main\webapp\WEB-INF\web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+ 
+</project>

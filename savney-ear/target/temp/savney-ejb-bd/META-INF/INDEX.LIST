@@ -1,0 +1,8 @@
+JarIndex-Version: 1.0
+
+savney-ejb-bd.jar
+META-INF
+META-INF/maven
+META-INF/maven/com.hawkano.savney
+META-INF/maven/com.hawkano.savney/savney-ejb-bd
+

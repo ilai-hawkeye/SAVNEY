@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hawkano.savney</groupId>
+    <artifactId>savney</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>savney-ejb-bd-cliente</artifactId>
+  <name>savney-ejb-bd-cliente</name>
+  <description>Modulo EJB para la BD del Cliente</description>
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.hawkano.savney</groupId>
+			<artifactId>savney-modelo-bd</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hawkano.savney</groupId>
+			<artifactId>savney-ejb-ws-cliente</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.4.4</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-api</artifactId>
+		    <type>jar</type>
+		    <version>7.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+</project>

@@ -1,0 +1,224 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hawkano.savney</groupId>
+    <artifactId>savney</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>savney-ejb-ws-cliente</artifactId>
+  <name>savney-ejb-ws-cliente</name>
+  <description>Modelo EJB para WS del Cliente</description>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.3.1-b20150201.1248</version>
+				<executions>
+					<!-- <execution> <goals> <goal>wsimport</goal> </goals> <configuration> 
+						<wsdlDirectory>${basedir}/src/main/resources/META-INF/wsdl/proveedores</wsdlDirectory> 
+						<wsdlLocation>WEB-INF/classes/META-INF/wsdl/proveedores/WSDL_Proveedores.wsdl</wsdlLocation> 
+						<wsdlFiles> <wsdlFile>WSDL_Proveedores.wsdl</wsdlFile> </wsdlFiles> <bindingDirectory>${basedir}/src/main/resources/META-INF/wsdl/proveedores</bindingDirectory> 
+						<bindingFiles> <bindingFile>binding_wsdl_definition.xml</bindingFile> <bindingFile>../binding_global.xjb</bindingFile> 
+						<bindingFile>xsd/binding_operaciones_schema.xjb</bindingFile> <bindingFile>xsd/binding_modelo_schema.xjb</bindingFile> 
+						</bindingFiles> <staleFile>${project.build.directory}/jaxws/stale/WSDL_Proveedores.stale</staleFile> 
+						<xjcArgs> <xjcArg>-no-header</xjcArg> <xjcArg>-Xxew</xjcArg> <xjcArg>-Xxew:instantiate 
+						lazy</xjcArg> <xjcArg>-XtoString</xjcArg> <xjcArg>-Xcopyable</xjcArg> <xjcArg>-Xequals</xjcArg> 
+						<xjcArg>-XhashCode</xjcArg> <xjcArg>-Xfluent-api</xjcArg> </xjcArgs> <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir> 
+						<xnocompile>true</xnocompile> <verbose>true</verbose> <extension>true</extension> 
+						<catalog>${basedir}/src/jax-ws-catalog.xml</catalog> <target>2.1</target> 
+						</configuration> <id>wsimport-generate-WSDL_Proveedores</id> <phase>generate-sources</phase> 
+						</execution> -->
+					<!-- <execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<wsdlDirectory>${basedir}/src/main/resources/META-INF/wsdl/timer</wsdlDirectory>
+							<wsdlLocation>META-INF/wsdl/timer/WSDL_Timer.wsdl</wsdlLocation>
+							<wsdlFiles>
+								<wsdlFile>WSDL_Timer.wsdl</wsdlFile>
+							</wsdlFiles>
+							<bindingDirectory>${basedir}/src/main/resources/META-INF/wsdl</bindingDirectory>
+							<bindingFiles>
+								<bindingFile>binding_global.xjb</bindingFile>
+							</bindingFiles>
+							<staleFile>${project.build.directory}/jaxws/stale/WSDL_Timer.stale</staleFile>
+							<xjcArgs>
+								<xjcArg>-no-header</xjcArg>
+								<xjcArg>-Xxew</xjcArg>
+								<xjcArg>-Xxew:instantiate lazy</xjcArg>
+								<xjcArg>-XtoString</xjcArg>
+								<xjcArg>-Xcopyable</xjcArg>
+								<xjcArg>-Xequals</xjcArg>
+								<xjcArg>-XhashCode</xjcArg>
+								<xjcArg>-Xfluent-api</xjcArg>
+							</xjcArgs>
+							<sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+							<xnocompile>true</xnocompile>
+							<verbose>true</verbose>
+							<extension>true</extension>
+							<catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
+							<target>2.1</target>
+						</configuration>
+						<id>wsimport-generate-WSDL_Timer</id>
+						<phase>generate-sources</phase>
+					</execution> -->
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.github.jaxb-xew-plugin</groupId>
+						<artifactId>jaxb-xew-plugin</artifactId>
+						<version>1.3</version>
+					</dependency>
+					<dependency>
+						<groupId>javax.xml</groupId>
+						<artifactId>webservices-api</artifactId>
+						<version>2.0.1</version>
+					</dependency>
+					<dependency>
+						<groupId>com.sun.xml.ws</groupId>
+						<artifactId>jaxws-tools</artifactId>
+						<version>2.2.8</version>
+					</dependency>
+					<!-- put xjc-plugins on the jaxws-maven-plugin's classpath -->
+					<dependency>
+						<groupId>org.jvnet.jaxb2_commons</groupId>
+						<artifactId>jaxb2-basics</artifactId>
+						<version>0.6.5</version>
+					</dependency>
+					<dependency>
+						<groupId>org.jvnet.jaxb2_commons</groupId>
+						<artifactId>jaxb2-fluent-api</artifactId>
+						<version>3.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/endorsed</outputDirectory>
+							<silent>true</silent>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.glassfish.metro</groupId>
+									<artifactId>webservices-api-osgi</artifactId>
+									<version>2.1.1-b09</version>
+									<type>jar</type>
+								</artifactItem>
+								<artifactItem>
+									<groupId>javax.xml.bind</groupId>
+									<artifactId>jaxb-api</artifactId>
+									<version>2.2.4</version>
+									<type>jar</type>
+								</artifactItem>
+								<artifactItem>
+									<groupId>javax.xml.ws</groupId>
+									<artifactId>jaxws-api</artifactId>
+									<version>2.2.8</version>
+									<type>jar</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- <resourcesDirectory>${basedir}/src/wsdl</resourcesDirectory> -->
+					<includes>
+						<include>**/*.xml</include>
+						<include>**/*.xjb</include>
+						<include>**/*.wsdl</include>
+						<include>**/*.xsd</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/jaxws-wsimport</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
+	<dependencies>
+
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-api</artifactId>
+		    <type>jar</type>
+		    <version>7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.2.8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+			<version>0.6.5</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-impl</artifactId>
+		    <version>2.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-tools</artifactId>
+			<version>0.6.5</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sun.jersey.contribs</groupId>
+		    <artifactId>jersey-multipart</artifactId>
+		    <version>1.19.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sun.jersey</groupId>
+		    <artifactId>jersey-json</artifactId>
+		    <version>1.19.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+	</dependencies>
+</project>
